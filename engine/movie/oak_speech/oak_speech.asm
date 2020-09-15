@@ -48,6 +48,11 @@ OakSpeech:
 	ld a, 1
 	ld [wItemQuantity], a
 	call AddItemToInventory  ; give one potion
+	ld a, REPEL ; CHANGE
+	ld [wcf91], a 
+	ld a, 6 
+	ld [wItemQuantity], a
+	call AddItemToInventory  ; give six Repels
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
 	call SpecialWarpIn

@@ -190,11 +190,15 @@ OaksLabScript7:
 	ld [wOaksLabCurScript], a
 	ret
 
-OaksLabScript8:
+OaksLabScript8: ; CHANGE
 	ld a, [wPlayerStarter]
-	cp STARTER1
+	push hl
+	ld hl, wCustomStarter1
+	cp [hl]
 	jr z, .Charmander
-	cp STARTER2
+	ld hl, wCustomStarter2
+	cp [hl]
+	pop hl
 	jr z, .Squirtle
 	jr .Bulbasaur
 .Charmander
@@ -375,7 +379,7 @@ OaksLabScript10:
 	ld [wOaksLabCurScript], a
 	ret
 
-OaksLabScript11:
+OaksLabScript11: ; CHANGE
 	ld a, [wd730]
 	bit 0, a
 	ret nz
@@ -384,12 +388,18 @@ OaksLabScript11:
 	ld a, OPP_RIVAL1
 	ld [wCurOpponent], a
 	ld a, [wRivalStarter]
-	cp STARTER2
+	push hl
+	ld hl, wCustomStarter2
+	cp [hl]
+	pop hl
 	jr nz, .NotSquirtle
 	ld a, $1
 	jr .done
 .NotSquirtle
-	cp STARTER3
+	push hl
+	ld hl, wCustomStarter3
+	cp [hl]
+	pop hl
 	jr nz, .Charmander
 	ld a, $2
 	jr .done
@@ -794,32 +804,47 @@ OaksLabText41:
 
 OaksLabText2:
 	text_asm
-	ld a, STARTER2
+	ld a, [wCustomStarter2] ;ld a, STARTER2
 	ld [wRivalStarterTemp], a
 	ld a, $3
 	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER1
 	ld b, $2
+	ld a, [wCustomStarter1]
+	;ld a, [wCustomStarterPosition] ; 
+	;bit 0, a ; is left ball ?
+	;ld a, STARTER1 ;
+	;jr z, OaksLabScript_1d133 ; not left ball = keeping vanilla
+	;ld a, [wCustomStarterInternalID] ; is left ball = switching to custom
 	jr OaksLabScript_1d133
 
 OaksLabText3:
 	text_asm
-	ld a, STARTER3
+	ld a, [wCustomStarter3] ;ld a, STARTER3
 	ld [wRivalStarterTemp], a
 	ld a, $4
 	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER2
 	ld b, $3
+	ld a, [wCustomStarter2] ;
+	;ld a, [wCustomStarterPosition] ; 
+	;bit 1, a ; is middle ball ?
+	;ld a, STARTER2 ;
+	;jr z, OaksLabScript_1d133 ; not middle ball = keeping vanilla
+	;ld a, [wCustomStarterInternalID] ; is middle ball = switching to custom
 	jr OaksLabScript_1d133
 
 OaksLabText4:
 	text_asm
-	ld a, STARTER1
+	ld a, [wCustomStarter1] ;ld a, STARTER1
 	ld [wRivalStarterTemp], a
 	ld a, $2
 	ld [wRivalStarterBallSpriteIndex], a
-	ld a, STARTER3
 	ld b, $4
+	ld a, [wCustomStarter3] ;
+	;ld a, [wCustomStarterPosition] ; 
+	;bit 2, a ; is right ball ?
+	;ld a, STARTER3 ;
+	;jr z, OaksLabScript_1d133 ; not right ball = keeping vanilla
+	;ld a, [wCustomStarterInternalID] ; is right ball = switching to custom
 
 OaksLabScript_1d133:
 	ld [wcf91], a
@@ -859,32 +884,11 @@ OaksLabScript_1d157:
 	call ReloadMapData
 	ld c, 10
 	call DelayFrames
-	ld a, [wSpriteIndex]
-	cp $2
-	jr z, OaksLabLookAtCharmander
-	cp $3
-	jr z, OaksLabLookAtSquirtle
-	jr OaksLabLookAtBulbasaur
-
-OaksLabLookAtCharmander:
-	ld hl, OaksLabCharmanderText
+	ld hl, OaksLabStarterText
 	jr OaksLabMonChoiceMenu
-OaksLabCharmanderText:
-	text_far _OaksLabCharmanderText
-	text_end
-
-OaksLabLookAtSquirtle:
-	ld hl, OaksLabSquirtleText
-	jr OaksLabMonChoiceMenu
-OaksLabSquirtleText:
-	text_far _OaksLabSquirtleText
-	text_end
-
-OaksLabLookAtBulbasaur:
-	ld hl, OaksLabBulbasaurText
-	jr OaksLabMonChoiceMenu
-OaksLabBulbasaurText:
-	text_far _OaksLabBulbasaurText
+	
+OaksLabStarterText:
+	text_far _OaksLabStarterText
 	text_end
 
 OaksLabMonChoiceMenu:

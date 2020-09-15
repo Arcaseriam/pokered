@@ -454,6 +454,9 @@ DisplayOptionMenu:
 	hlcoord 2, 16
 	ld de, OptionMenuCancelText
 	call PlaceString
+	hlcoord 0, 15 ; CHANGE
+	ld de, OptionMenuStarterText
+	call PlaceString
 	xor a
 	ld [wCurrentMenuItem], a
 	ld [wLastMenuItem], a
@@ -475,10 +478,15 @@ DisplayOptionMenu:
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	ld b, a
-	and A_BUTTON | B_BUTTON | START | D_RIGHT | D_LEFT | D_UP | D_DOWN ; any key besides select pressed?
+	and A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN ; CHANGE
 	jr z, .getJoypadStateLoop
 	bit 1, b ; B button pressed?
 	jr nz, .exitMenu
+	bit 2, b ; Select button pressed ? ; CHANGE
+	jp z, .noStarterMenu
+	farcall DisplayStarterMenu ; CHANGE
+	jr .exitMenu
+.noStarterMenu
 	bit 3, b ; Start button pressed?
 	jr nz, .exitMenu
 	bit 0, b ; A button pressed?
@@ -596,6 +604,10 @@ BattleStyleOptionText:
 OptionMenuCancelText:
 	db "CANCEL@"
 
+OptionMenuStarterText: ; CHANGE
+	db   "(STARTER PRESS SEL.)@" ;
+
+
 ; sets the options variable according to the current placement of the menu cursors in the options menu
 SetOptionsFromCursorPositions:
 	ld hl, TextSpeedOptionData
@@ -672,6 +684,7 @@ SetCursorPositionsFromOptions:
 	add hl, de
 	ld [hl], "▷"
 	ret
+
 
 ; table that indicates how the 3 text speed options affect frame delays
 ; Format:

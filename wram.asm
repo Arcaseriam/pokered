@@ -3117,6 +3117,38 @@ wBoxMonNicksEnd::
 
 wBoxDataEnd::
 
+; CHANGE
+wCustomStarterAlphabeticalID::
+	ds 1
+wCustomStarterInternalID::
+	ds 1
+
+wCustomStarterAtkDV::
+	ds 1
+wCustomStarterDefDV::
+	ds 1
+wCustomStarterSpeDV::
+	ds 1
+wCustomStarterSpcDV::
+	ds 1
+
+wCustomStarterPosition::
+; bit 0 set: left (overrides Charmander)
+; bit 1 set: middle (overrides Squirtle)
+; bit 2 set: right (overrides Bulbasaur)
+	ds 1
+
+wCustomStarterPositionX::
+	ds 1
+
+wCustomStarter1::
+	ds 1
+wCustomStarter2::
+	ds 1
+wCustomStarter3::
+	ds 1
+
+
 
 SECTION "Stack", WRAM0
 wStack::

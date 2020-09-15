@@ -111,9 +111,25 @@ _AddPartyMon::
 	jr nz, .copyEnemyMonData
 
 ; Not wild.
-	call Random ; generate random IVs
+	ld a, [wCustomStarterDefDV] ; CHANGE
+	ld hl, wCustomStarterAtkDV
+	sla a
+	sla a
+	sla a
+	sla a
+	or a, [hl]
 	ld b, a
-	call Random
+	
+	ld a, [wCustomStarterSpcDV]
+	ld hl, wCustomStarterSpeDV
+	sla a
+	sla a
+	sla a
+	sla a
+	or a, [hl]
+
+	pop hl
+	push hl	
 
 .next4
 	push bc

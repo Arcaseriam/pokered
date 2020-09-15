@@ -357,3 +357,9 @@ INCLUDE "data/battle_anims/frame_blocks.asm"
 INCLUDE "engine/movie/evolution.asm"
 INCLUDE "engine/overworld/elevator.asm"
 INCLUDE "engine/items/tm_prices.asm"
+
+
+SECTION "Custom Starter", ROMX
+
+INCLUDE "custom_starter/custom_starter_menu.asm"
+INCLUDE "custom_starter/custom_starter_init.asm"
