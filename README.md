@@ -1,15 +1,22 @@
-# Pokémon Red and Blue [![Build Status][travis-badge]][travis]
+# Pokémon Red and Blue - Custom Starter ROM [![Build Status][travis-badge]][travis]
 
-This is a disassembly of Pokémon Red and Blue.
+This is a **non-PSR-official, modified** version of the disassembly of Pokémon Red and Blue.
+Modifications are made to offer starter customization for the player, as well as workarounds for RNG manipulations.
 
 It builds the following ROMs:
 
-- Pokemon Red (UE) [S][!].gb `sha1: ea9bcae617fdf159b045185467ae58b2e4a48b9a`
-- Pokemon Blue (UE) [S][!].gb `sha1: d7037c83e1ae5b39bde3c30787637ba1d4c48ce2`
-- BLUEMONS.GB (debug build) `sha1: 5b1456177671b79b263c614ea0e7cc9ac542e9c4`
+- Pokemon Red (UE) [S][!].gb `sha1: tbd`
+- Pokemon Blue (UE) [S][!].gb `sha1: tbd`
+- BLUEMONS.GB (debug build) `sha1: tbd`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
+## Main changes
+- Custom starter menu available before New Game, through the Option menu.
+- 6 Repels available in player's PC.
+- Guaranteed catch of any wild Pokémon with any Ball type.
+- Only Flier encounters on Route 3.
+- Only Paras encounters in Mt. Moon B2F (last floor).
 
 ## See also
 
@@ -18,6 +25,7 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
 Other disassembly projects:
 
+- [**Pokémon Red/Blue**][pokered]
 - [**Pokémon Yellow**][pokeyellow]
 - [**Pokémon Gold/Silver**][pokegold]
 - [**Pokémon Crystal**][pokecrystal]
@@ -27,6 +35,7 @@ Other disassembly projects:
 - [**Pokémon FireRed**][pokefirered]
 - [**Pokémon Emerald**][pokeemerald]
 
+[pokered]: https://github.com/pret/pokered
 [pokeyellow]: https://github.com/pret/pokeyellow
 [pokegold]: https://github.com/pret/pokegold
 [pokecrystal]: https://github.com/pret/pokecrystal
