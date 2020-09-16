@@ -18,6 +18,10 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 - Only Flier encounters on Route 3.
 - Only Paras encounters in Mt. Moon B2F (last floor).
 
+## Visuals
+![Image of Option menu](https://i.imgur.com/NnjrHiX.png)
+![Image of Starter menu](https://i.imgur.com/Hw7ekAD.png)
+
 ## See also
 
 - **Discord:** [pret][discord]
