@@ -804,47 +804,32 @@ OaksLabText41:
 
 OaksLabText2:
 	text_asm
-	ld a, [wCustomStarter2] ;ld a, STARTER2
+	ld a, [wCustomStarter2]
 	ld [wRivalStarterTemp], a
 	ld a, $3
 	ld [wRivalStarterBallSpriteIndex], a
 	ld b, $2
 	ld a, [wCustomStarter1]
-	;ld a, [wCustomStarterPosition] ; 
-	;bit 0, a ; is left ball ?
-	;ld a, STARTER1 ;
-	;jr z, OaksLabScript_1d133 ; not left ball = keeping vanilla
-	;ld a, [wCustomStarterInternalID] ; is left ball = switching to custom
 	jr OaksLabScript_1d133
 
 OaksLabText3:
 	text_asm
-	ld a, [wCustomStarter3] ;ld a, STARTER3
+	ld a, [wCustomStarter3]
 	ld [wRivalStarterTemp], a
 	ld a, $4
 	ld [wRivalStarterBallSpriteIndex], a
 	ld b, $3
-	ld a, [wCustomStarter2] ;
-	;ld a, [wCustomStarterPosition] ; 
-	;bit 1, a ; is middle ball ?
-	;ld a, STARTER2 ;
-	;jr z, OaksLabScript_1d133 ; not middle ball = keeping vanilla
-	;ld a, [wCustomStarterInternalID] ; is middle ball = switching to custom
+	ld a, [wCustomStarter2]
 	jr OaksLabScript_1d133
 
 OaksLabText4:
 	text_asm
-	ld a, [wCustomStarter1] ;ld a, STARTER1
+	ld a, [wCustomStarter1]
 	ld [wRivalStarterTemp], a
 	ld a, $2
 	ld [wRivalStarterBallSpriteIndex], a
 	ld b, $4
-	ld a, [wCustomStarter3] ;
-	;ld a, [wCustomStarterPosition] ; 
-	;bit 2, a ; is right ball ?
-	;ld a, STARTER3 ;
-	;jr z, OaksLabScript_1d133 ; not right ball = keeping vanilla
-	;ld a, [wCustomStarterInternalID] ; is right ball = switching to custom
+	ld a, [wCustomStarter3]
 
 OaksLabScript_1d133:
 	ld [wcf91], a

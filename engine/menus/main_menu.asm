@@ -478,7 +478,7 @@ DisplayOptionMenu:
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	ld b, a
-	and A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN ; CHANGE
+	;and A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN ; CHANGE
 	jr z, .getJoypadStateLoop
 	bit 1, b ; B button pressed?
 	jr nz, .exitMenu
