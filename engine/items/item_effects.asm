@@ -175,13 +175,15 @@ ItemUseBall:
 	jp z, .setAnimData
 
 .loop
+; Get the item ID.
+	ld hl, wcf91
+	ld a, [hl]
+	
 ; Always catch (mimics yoloball) ; CHANGE
 	jp .captured
 
 .captured
 .setAnimData
-	ld a, b
-	ld [wPokeBallAnimData], a
 .skipShakeCalculations
 	ld c, 20
 	call DelayFrames
