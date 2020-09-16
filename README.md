@@ -20,7 +20,7 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
 ## Visuals
 ![Image of Option menu](https://i.imgur.com/NnjrHiX.png)
-![Image of Starter menu](https://i.imgur.com/Hw7ekAD.png)
+![Image of Starter menu](https://i.imgur.com/D11hkv4.png)
 
 ## See also
 
