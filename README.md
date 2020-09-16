@@ -5,9 +5,9 @@ Modifications are made to offer starter customization for the player, as well as
 
 It builds the following ROMs:
 
-- Pokemon Red (UE) [S][!].gb `sha1: tbd`
-- Pokemon Blue (UE) [S][!].gb `sha1: tbd`
-- BLUEMONS.GB (debug build) `sha1: tbd`
+- Pokemon Red (UE) pokered.gbc `sha1: 427847a030b021e25f65f28ec2fece28435358b3`
+- Pokemon Blue (UE) pokeblue.gbc `sha1: 3dc8be730979519d315098a46fc03d8e3b6ebb5f`
+- pokeblue_debug.gbc (debug build) `sha1: a96f427f8ea20c13cce6aa2f8c8b44a21d55ec03`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
