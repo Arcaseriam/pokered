@@ -192,16 +192,13 @@ OaksLabScript7:
 
 OaksLabScript8: ; CHANGE
 	ld a, [wPlayerStarter]
-	push hl
-	ld hl, wCustomStarter1
-	cp [hl]
-	jr z, .Charmander
-	ld hl, wCustomStarter2
-	cp [hl]
-	pop hl
-	jr z, .Squirtle
-	jr .Bulbasaur
-.Charmander
+    ld hl, wCustomStarter3
+    cp [hl]
+    jr z, .Bulbasaur
+    dec l
+    cp [hl]
+    jr z, .Squirtle
+.Charmander ; fallthrough
 	ld de, .MiddleBallMovement1
 	ld a, [wYCoord]
 	cp 4 ; is the player standing below the table?

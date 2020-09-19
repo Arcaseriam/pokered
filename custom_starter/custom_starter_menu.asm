@@ -79,8 +79,9 @@ DisplayStarterMenu:
 	cp 16 ; is the cursor on Cancel?
 	jr nz, .loop
 .exitMenu
-	;ld a, SFX_PRESS_AB
-	;call PlaySound
+	xor a
+	ld [hJoy6], a
+	ld [hJoy7], a
 	ret
 .eraseOldMenuCursor
 	ld [wTopMenuItemX], a
