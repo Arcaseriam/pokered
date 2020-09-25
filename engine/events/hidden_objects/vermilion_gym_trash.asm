@@ -21,77 +21,17 @@ GymTrashScript:
 	CheckEventReuseA EVENT_1ST_LOCK_OPENED
 	jr nz, .trySecondLock
 
-	ld a, [wFirstLockTrashCanIndex]
-	ld b, a
-	ld a, [wGymTrashCanIndex]
-	cp b
-	jr z, .openFirstLock
-
-	tx_pre_id VermilionGymTrashText
-	jr .done
+	jr .openFirstLock ;CHANGE
 
 .openFirstLock
 ; Next can is trying for the second switch.
 	SetEvent EVENT_1ST_LOCK_OPENED
 
-	ld hl, GymTrashCans
-	ld a, [wGymTrashCanIndex]
-	; * 5
-	ld b, a
-	add a
-	add a
-	add b
-
-	ld d, 0
-	ld e, a
-	add hl, de
-	ld a, [hli]
-
-; There is a bug in this code. It should calculate a value in the range [0, 3]
-; but if the mask and random number don't have any 1 bits in common, then
-; the result of the AND will be 0. When 1 is subtracted from that, the value
-; will become $ff. This will result in 255 being added to hl, which will cause
-; hl to point to one of the zero bytes that pad the end of the ROM bank.
-; Trash can 0 was intended to be able to have the second lock only when the
-; first lock was in trash can 1 or 3. However, due to this bug, trash can 0 can
-; have the second lock regardless of which trash can had the first lock.
-
-	ldh [hGymTrashCanRandNumMask], a
-	push hl
-	call Random
-	swap a
-	ld b, a
-	ldh a, [hGymTrashCanRandNumMask]
-	and b
-	dec a
-	pop hl
-
-	ld d, 0
-	ld e, a
-	add hl, de
-	ld a, [hl]
-	and $f
-	ld [wSecondLockTrashCanIndex], a
-
 	tx_pre_id VermilionGymTrashSuccessText1
 	jr .done
 
 .trySecondLock
-	ld a, [wSecondLockTrashCanIndex]
-	ld b, a
-	ld a, [wGymTrashCanIndex]
-	cp b
-	jr z, .openSecondLock
-
-; Reset the cans.
-	ResetEvent EVENT_1ST_LOCK_OPENED
-	call Random
-
-	and $e
-	ld [wFirstLockTrashCanIndex], a
-
-	tx_pre_id VermilionGymTrashFailText
-	jr .done
+	jr .openSecondLock ;CHANGE
 
 .openSecondLock
 ; Completed the trash can puzzle.
