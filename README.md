@@ -5,9 +5,9 @@ Modifications are made to offer starter customization for the player, as well as
 
 It builds the following ROMs:
 
-- Pokemon Red (UE) pokered.gbc `sha1: 8cbca8d4b611fa3bd8322618091720786ef98a67`
-- Pokemon Blue (UE) pokeblue.gbc `sha1: 888058e884680a014eb830ae1bee8d10cc4f076a`
-- pokeblue_debug.gbc (debug build) `sha1: 479497a28cb6845c2ec5b38bb56c58a6c53fc4a0`
+- Pokemon Red (UE) pokered.gbc `sha1: 7273a690c1327f52e1594b1e9bb4d6619ab744d3`
+- Pokemon Blue (UE) pokeblue.gbc `sha1: 369eae87edaace941b8f0834543681b57bc69ece`
+- pokeblue_debug.gbc (debug build) `sha1: f298869468b790db05aad5605ec14f087680f97b`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
@@ -17,6 +17,7 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 - Guaranteed catch of any wild Pokémon with any Ball type.
 - Only Flier encounters on Route 3.
 - Only Paras encounters in Mt. Moon B2F (last floor).
+- Only Sandshrew encounters on Route 4 in Blue version.
 
 ## Visuals
 ![Image of Option menu](https://i.imgur.com/NnjrHiX.png)
