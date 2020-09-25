@@ -16,8 +16,9 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 - 6 Repels available in player's PC.
 - Guaranteed catch of any wild Pokémon with any Ball type.
 - Only Flier encounters on Route 3.
-- Only Paras encounters in Mt. Moon B2F (last floor).
-- Only Sandshrew encounters on Route 4 in Blue version.
+- Only Paras encounters on Mt. Moon B2F (last floor).
+- Only L6-8 Sandshrew encounters on Route 4 in Blue version.
+- Vermillion City Gym doors can be opened with any two cans.
 
 ## Visuals
 ![Image of Option menu](https://i.imgur.com/NnjrHiX.png)
