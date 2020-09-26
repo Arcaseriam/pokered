@@ -1,8 +1,8 @@
 Route4Mons:
 	db 20 ; grass encounter rate
-	db 10, RATTATA
-	db 10, SPEAROW
-	db  8, RATTATA
+	db  6, SANDSHREW
+	db  6, SANDSHREW
+	db  6, SANDSHREW
 IF DEF(_RED)
 	db  6, EKANS
 	db  8, SPEAROW
@@ -14,9 +14,9 @@ IF DEF(_RED)
 ENDC
 IF DEF(_BLUE) ; CHANGE
 	db  6, SANDSHREW
-	db  6, SANDSHREW ;db  8, SPEAROW
-	db  6, SANDSHREW
-	db  6, SANDSHREW ;db 12, RATTATA
+	db  8, SANDSHREW ;db  8, SPEAROW
+	db  8, SANDSHREW
+	db  8, SANDSHREW ;db 12, RATTATA
 	db  8, SANDSHREW ;db 12, SPEAROW
 	db  8, SANDSHREW
 	db  8, SANDSHREW
