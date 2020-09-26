@@ -5,9 +5,9 @@ Modifications are made to offer starter customization for the player, as well as
 
 It builds the following ROMs:
 
-- Pokemon Red pokered.gbc `sha1: ea9bcae617fdf159b045185467ae58b2e4a48b9a`
-- Pokemon Blue pokeblue.gbc `sha1: d7037c83e1ae5b39bde3c30787637ba1d4c48ce2`
-- pokeblue_debug.gbc (debug build) `sha1: 5b1456177671b79b263c614ea0e7cc9ac542e9c4`
+- Pokemon Red pokered.gbc `sha1: 2f89fb9b9832f9fb4fb610e89a1707be1f462ff1` `crc32: 5B8BEB1D`
+- Pokemon Blue pokeblue.gbc `sha1: 144c631b9a36c51ae2aeb6444f58e33f58d5bcdf` `crc32: 0EDB3C58`
+- pokeblue_debug.gbc (debug build) `sha1: 7ac856927f7f62b11ca2bc67cb8b932087087172`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
