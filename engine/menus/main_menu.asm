@@ -9,6 +9,9 @@ MainMenu:
 	jr nc, .mainMenuLoop
 
 	predef LoadSAV
+	ld a, [wSaveFileStatus] ; CHANGE
+	dec a
+	ld [wDisabledCustomStarterMenu], a ; if save, disable starter menu
 
 .mainMenuLoop
 	ld c, 20
@@ -305,6 +308,8 @@ LinkCanceledText:
 	text_end
 
 StartNewGame:
+	ld a, 1 ; CHANGE
+	ld [wDisabledCustomStarterMenu], a ; disables starter menu even without save
 	ld hl, wd732
 	res 1, [hl]
 StartNewGameDebug:
@@ -454,9 +459,13 @@ DisplayOptionMenu:
 	hlcoord 2, 16
 	ld de, OptionMenuCancelText
 	call PlaceString
+	ld a, [wDisabledCustomStarterMenu] ; check if disabled starter menu
+	and a
+	jr nz, .skipStarterText
 	hlcoord 0, 15 ; CHANGE
 	ld de, OptionMenuStarterText
 	call PlaceString
+.skipStarterText
 	xor a
 	ld [wCurrentMenuItem], a
 	ld [wLastMenuItem], a
@@ -484,6 +493,9 @@ DisplayOptionMenu:
 	jr nz, .exitMenu
 	bit 2, b ; Select button pressed ? ; CHANGE
 	jp z, .noStarterMenu
+	ld a, [wDisabledCustomStarterMenu] ; check if disabled starter menu
+	and a
+	jr nz, .loop
 	farcall DisplayStarterMenu ; CHANGE
 	jr .exitMenu
 .noStarterMenu

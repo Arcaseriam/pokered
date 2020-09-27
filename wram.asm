@@ -3147,6 +3147,11 @@ wCustomStarter2::
 	ds 1
 wCustomStarter3::
 	ds 1
+	
+wDisabledCustomStarterMenu::
+; 0   = not disabled
+; any = disabled
+	ds 1
 
 
 
