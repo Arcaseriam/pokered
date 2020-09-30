@@ -368,25 +368,15 @@ SetCursorPositionsFromCustomStarter:
 	ret
 
 
-SetCustomStarterInternalID:
-	ld a, [wCustomStarterAlphabeticalID]
-	ld d, 0
-	ld e, a
-	ld hl, PokemonAlphabeticalList
-	add hl, de
-	ld a, [hl] ; gets internal Pokémon ID
-	ld [wCustomStarterInternalID], a
-	ret
-
 StarterNameDisplay:	
 	hlcoord 1, 2
 	ld de, StarterSpeciesWhiteText
 	call PlaceString
 
-	call SetCustomStarterInternalID
+	call SetCustomStarterIDs
 	ld a, [wCustomStarterInternalID]
 	ld [wd11e], a
-	call GetMonName ; outputs in wcd6d
+	call GetMonName
 	hlcoord 3, 2
 	call PlaceString
 	ret
@@ -410,158 +400,3 @@ StarterDVsDisplay:
 	lb bc, LEADING_ZEROES | 1, 2
 	call PrintNumber
 	ret
-
-
-PokemonAlphabeticalList::
-	db ABRA			;  0
-	db AERODACTYL
-	db ALAKAZAM
-	db ARBOK
-	db ARCANINE
-	db ARTICUNO
-	db BEEDRILL
-	db BELLSPROUT
-	db BLASTOISE
-	db BULBASAUR
-	db BUTTERFREE	; 10
-	db CATERPIE
-	db CHANSEY
-	db CHARIZARD
-	db CHARMANDER
-	db CHARMELEON
-	db CLEFABLE
-	db CLEFAIRY
-	db CLOYSTER
-	db CUBONE
-	db DEWGONG		; 20
-	db DIGLETT
-	db DITTO
-	db DODRIO
-	db DODUO
-	db DRAGONAIR
-	db DRAGONITE
-	db DRATINI
-	db DROWZEE
-	db DUGTRIO
-	db EEVEE		; 30
-	db EKANS
-	db ELECTABUZZ
-	db ELECTRODE
-	db EXEGGCUTE
-	db EXEGGUTOR
-	db FARFETCHD
-	db FEAROW
-	db FLAREON
-	db GASTLY
-	db GENGAR		; 40
-	db GEODUDE
-	db GLOOM
-	db GOLBAT
-	db GOLDEEN
-	db GOLDUCK
-	db GOLEM
-	db GRAVELER
-	db GRIMER
-	db GROWLITHE
-	db GYARADOS		; 50
-	db HAUNTER
-	db HITMONCHAN
-	db HITMONLEE
-	db HORSEA
-	db HYPNO
-	db IVYSAUR
-	db JIGGLYPUFF
-	db JOLTEON
-	db JYNX
-	db KABUTO		; 60
-	db KABUTOPS
-	db KADABRA
-	db KAKUNA
-	db KANGASKHAN
-	db KINGLER
-	db KOFFING
-	db KRABBY
-	db LAPRAS
-	db LICKITUNG
-	db MACHAMP		; 70
-	db MACHOKE
-	db MACHOP
-	db MAGIKARP
-	db MAGMAR
-	db MAGNEMITE
-	db MAGNETON
-	db MANKEY
-	db MAROWAK
-	db MEOWTH
-	db METAPOD		; 80
-	db MEW
-	db MEWTWO
-	db MOLTRES
-	db MR_MIME
-	db MUK
-	db NIDOKING
-	db NIDOQUEEN
-	db NIDORAN_F
-	db NIDORAN_M
-	db NIDORINA		; 90
-	db NIDORINO
-	db NINETALES
-	db ODDISH
-	db OMANYTE
-	db OMASTAR
-	db ONIX
-	db PARAS
-	db PARASECT
-	db PERSIAN
-	db PIDGEOT		;100
-	db PIDGEOTTO
-	db PIDGEY
-	db PIKACHU
-	db PINSIR
-	db POLIWAG
-	db POLIWHIRL
-	db POLIWRATH
-	db PONYTA
-	db PORYGON
-	db PRIMEAPE		;110
-	db PSYDUCK
-	db RAICHU
-	db RAPIDASH
-	db RATICATE
-	db RATTATA
-	db RHYDON
-	db RHYHORN
-	db SANDSHREW
-	db SANDSLASH
-	db SCYTHER		;120
-	db SEADRA
-	db SEAKING
-	db SEEL
-	db SHELLDER
-	db SLOWBRO
-	db SLOWPOKE
-	db SNORLAX
-	db SPEAROW
-	db SQUIRTLE
-	db STARMIE		;130
-	db STARYU
-	db TANGELA
-	db TAUROS
-	db TENTACOOL
-	db TENTACRUEL
-	db VAPOREON
-	db VENOMOTH
-	db VENONAT
-	db VENUSAUR
-	db VICTREEBEL	;140
-	db VILEPLUME
-	db VOLTORB
-	db VULPIX
-	db WARTORTLE
-	db WEEDLE
-	db WEEPINBELL
-	db WEEZING
-	db WIGGLYTUFF
-	db ZAPDOS
-	db ZUBAT		;150
-	db -1

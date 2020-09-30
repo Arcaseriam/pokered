@@ -3122,6 +3122,8 @@ wCustomStarterAlphabeticalID::
 	ds 1
 wCustomStarterInternalID::
 	ds 1
+wCustomStarterDexID::
+	ds 1
 
 wCustomStarterAtkDV::
 	ds 1

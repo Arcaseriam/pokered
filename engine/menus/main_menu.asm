@@ -310,6 +310,7 @@ LinkCanceledText:
 StartNewGame:
 	ld a, 1 ; CHANGE
 	ld [wDisabledCustomStarterMenu], a ; disables starter menu even without save
+	
 	ld hl, wd732
 	res 1, [hl]
 StartNewGameDebug:
