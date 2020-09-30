@@ -5,9 +5,9 @@ Modifications are made to offer starter customization for the player, as well as
 
 It builds the following ROMs:
 
-- Pokemon Red pokered.gbc `sha1: 7116578567d22b7ce5b138d19890ae353e5f145b` `crc32: 1BE4545F`
-- Pokemon Blue pokeblue.gbc `sha1: 43a94e61d78a72b85c89ac8557ff766535cfcc14` `crc32: 87C069AD`
-- pokeblue_debug.gbc (debug build) `sha1: f2b910b3694eecdfd2f2501bb51d0f4f1df22802`
+- Pokemon Red pokered.gbc `sha1: eb38bec06d0c07427269001ebac9b806a2baf664` `crc32: 2DDD6591`
+- Pokemon Blue pokeblue.gbc `sha1: 37f076e0e3748a68561fdfac1804f707134ca9a1` `crc32: 1B808411`
+- pokeblue_debug.gbc (debug build) `sha1: ec92920d8e3c8e90288dba3cbc32176dd1ba66ef`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
@@ -16,7 +16,7 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 - 6 Repels available in player's PC.
 - Guaranteed catch of any wild Pokémon with any Ball type.
 - Only Flier encounters on Route 3.
-- Only Paras encounters on Mt. Moon B2F (last floor).
+- Only L10 Paras encounters on Mt. Moon B2F (last floor).
 - Only L6-8 Sandshrew encounters on Route 4 in Blue version.
 - Vermillion City Gym doors can be opened with any two cans.
 
