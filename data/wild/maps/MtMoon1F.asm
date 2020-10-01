@@ -8,7 +8,7 @@ MoonMons1:
 	db 10, ZUBAT
 	db 10, GEODUDE
 	db  8, PARAS
-	db 11, ZUBAT
+	db 10, ZUBAT
 	db  8, CLEFAIRY
 
 	db 0 ; water encounter rate

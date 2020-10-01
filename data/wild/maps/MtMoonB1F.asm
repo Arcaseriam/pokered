@@ -7,7 +7,7 @@ MoonMonsB1:
 	db  9, ZUBAT
 	db 10, PARAS
 	db 10, ZUBAT
-	db 11, ZUBAT
+	db 10, ZUBAT
 	db  9, CLEFAIRY
 	db  9, GEODUDE
 
