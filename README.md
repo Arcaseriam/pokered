@@ -10,6 +10,7 @@ It builds the following ROMs:
 - pokeblue_debug.gbc (debug build) `sha1: d3a1eed419251e9b184dc9db0146b005b71cfaac`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
+
 If you only need to apply the changes to an existing vanilla ROM, see [**PATCHES.md**](PATCHES.md)
 
 ## Main changes
