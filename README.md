@@ -1,4 +1,4 @@
-# Pokémon Red and Blue - Custom Starter ROM [![Build Status][travis-badge]][travis]
+# Pokémon Red and Blue - Custom Starter ROM
 
 This is a **non-PSR-official, modified** version of the disassembly of Pokémon Red and Blue.
 Modifications are made to offer starter customization for the player, as well as workarounds for RNG manipulations.
@@ -10,6 +10,7 @@ It builds the following ROMs:
 - pokeblue_debug.gbc (debug build) `sha1: d3a1eed419251e9b184dc9db0146b005b71cfaac`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
+If you only need to apply the changes to an existing vanilla ROM, see [**PATCHES.md**](PATCHES.md)
 
 ## Main changes
 - Custom starter menu available before New Game, through the Option menu.
@@ -27,31 +28,13 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
 ## See also
 
-- **Discord:** [pret][discord]
-- **IRC:** [freenode#pret][irc]
+- **Gen 1-3 Pokémon Speedrunning:** [Discord][speedrun-discord]
 
 Other disassembly projects:
 
+- [**Pokémon Crystal - Custom Starter**][pokecrystal-custom-starter]
 - [**Pokémon Red/Blue**][pokered]
-- [**Pokémon Yellow**][pokeyellow]
-- [**Pokémon Gold/Silver**][pokegold]
-- [**Pokémon Crystal**][pokecrystal]
-- [**Pokémon Pinball**][pokepinball]
-- [**Pokémon TCG**][poketcg]
-- [**Pokémon Ruby**][pokeruby]
-- [**Pokémon FireRed**][pokefirered]
-- [**Pokémon Emerald**][pokeemerald]
 
+[speedrun-discord]: https://discord.gg/NjQFEkc
+[pokecrystal-custom-starter]: https://github.com/Arcaseriam/pokecrystal-custom-starter
 [pokered]: https://github.com/pret/pokered
-[pokeyellow]: https://github.com/pret/pokeyellow
-[pokegold]: https://github.com/pret/pokegold
-[pokecrystal]: https://github.com/pret/pokecrystal
-[pokepinball]: https://github.com/pret/pokepinball
-[poketcg]: https://github.com/pret/poketcg
-[pokeruby]: https://github.com/pret/pokeruby
-[pokefirered]: https://github.com/pret/pokefirered
-[pokeemerald]: https://github.com/pret/pokeemerald
-[discord]: https://discord.gg/d5dubZ3
-[irc]: https://kiwiirc.com/client/irc.freenode.net/?#pret
-[travis]: https://travis-ci.org/pret/pokered
-[travis-badge]: https://travis-ci.org/pret/pokered.svg?branch=master
