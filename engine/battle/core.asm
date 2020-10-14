@@ -6087,7 +6087,7 @@ GetCurrentMove:
 	ld de, wcd6d
 	jp CopyStringToCF4B
 
-LoadEnemyMonData:
+LoadEnemyMonData: ; CHANGE
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jp z, LoadEnemyMonFromParty
@@ -6107,7 +6107,15 @@ LoadEnemyMonData:
 	ld a, ATKDEFDV_TRAINER
 	ld b, SPDSPCDV_TRAINER
 	jr z, .storeDVs
-; random DVs for wild mon
+; random DVs for wild mon and FFFF for forced encounters
+	ld a, [wAreaIsForcedEncounter]
+	or a
+	jr z, .notForcedEncounter
+	; enforcing FFFF DVs
+	ld a, $ff
+	ld b, $ff
+	jr .storeDVs
+.notForcedEncounter
 	call BattleRandom
 	ld b, a
 	call BattleRandom
@@ -6778,10 +6786,60 @@ InitBattleCommon:
 	ld [wIsInBattle], a
 	jp _InitBattleCommon
 
-InitWildBattle:
+InitWildBattle: ; CHANGE
 	ld a, $1
 	ld [wIsInBattle], a
+	
+	; encounter hack
+	ld a, [wRepelRemainingSteps]
+	cp 0
+	jr nz, .dontModify ; Repel is still active
+	ld a, [wCurMap]
+	ld b, a
+	ld a, [wArea1ID]
+	cp b
+	jr z, .area1
+	ld a, [wArea2ID]
+	cp b
+	jr z, .area2
+	ld a, [wArea3ID]
+	cp b
+	jr z, .area3
+	jr .dontModify
+.area1
+	ld a, [wArea1Species]
+	cp -1
+	jr z, .dontModify
+	ld [wEnemyMonSpecies2], a
+	ld [wcf91], a
+	ld a, [wArea1Level]
+	jr .done
+.area2
+	ld a, [wArea2Species]
+	cp -1
+	jr z, .dontModify
+	ld [wEnemyMonSpecies2], a
+	ld [wcf91], a
+	ld a, [wArea2Level]
+	jr .done
+.area3
+	ld a, [wArea3Species]
+	cp -1
+	jr z, .dontModify
+	ld [wEnemyMonSpecies2], a
+	ld [wcf91], a
+	ld a, [wArea3Level]
+	; fallthrough
+.done
+	ld [wCurEnemyLVL], a
+	ld a, 1
+	ld [wAreaIsForcedEncounter], a
+.dontModify
 	call LoadEnemyMonData
+	push af
+	ld a, 0
+	ld [wAreaIsForcedEncounter], a ; CHANGE
+	pop af
 	call DoBattleTransitionAndInitBattleVariables
 	ld a, [wCurOpponent]
 	cp RESTLESS_SOUL

@@ -490,9 +490,9 @@ DisplayOptionMenu:
 	ld b, a
 	;and A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN ; CHANGE
 	jr z, .getJoypadStateLoop
-	bit 1, b ; B button pressed?
+	bit BIT_B_BUTTON, b ; B button pressed?
 	jr nz, .exitMenu
-	bit 2, b ; Select button pressed ? ; CHANGE
+	bit BIT_SELECT, b ; Select button pressed ? ; CHANGE
 	jp z, .noStarterMenu
 	ld a, [wDisabledCustomStarterMenu] ; check if disabled starter menu
 	and a
@@ -500,9 +500,9 @@ DisplayOptionMenu:
 	farcall DisplayStarterMenu ; CHANGE
 	jr .exitMenu
 .noStarterMenu
-	bit 3, b ; Start button pressed?
+	bit BIT_START, b ; Start button pressed?
 	jr nz, .exitMenu
-	bit 0, b ; A button pressed?
+	bit BIT_A_BUTTON, b ; A button pressed?
 	jr z, .checkDirectionKeys
 	ld a, [wTopMenuItemY]
 	cp 16 ; is the cursor on Cancel?

@@ -3155,7 +3155,53 @@ wDisabledCustomStarterMenu::
 ; any = disabled
 	ds 1
 
+wArea1ID::
+	ds 1
+wArea1Level::
+	ds 1
+wArea1Species::
+	ds 1
+wArea1Pos::
+	ds 1
+wArea1SpeciesPos::
+	ds 1
 
+wArea2ID::
+	ds 1
+wArea2Level::
+	ds 1
+wArea2Species::
+	ds 1
+wArea2Pos::
+	ds 1
+wArea2SpeciesPos::
+	ds 1
+
+wArea3ID::
+	ds 1
+wArea3Level::
+	ds 1
+wArea3Species::
+	ds 1
+wArea3Pos::
+	ds 1
+wArea3SpeciesPos::
+	ds 1
+	
+wAreaIsForcedEncounter::
+	ds 1
+
+; failed attempt
+; wEncounterTableAddr::
+	; ds 2
+; wAreaCounter::
+	; ds 1
+; wAreaYOffset::
+	; ds 1
+; wAreaTextAddr::
+	; ds 2
+; wCurrentAreaAddr::
+	; ds 2
 
 SECTION "Stack", WRAM0
 wStack::

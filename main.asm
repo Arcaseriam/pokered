@@ -359,7 +359,8 @@ INCLUDE "engine/overworld/elevator.asm"
 INCLUDE "engine/items/tm_prices.asm"
 
 
-SECTION "Custom Starter", ROMX
+SECTION "Custom Starter", ROMX ; CHANGE
 
 INCLUDE "custom_starter/custom_starter_menu.asm"
 INCLUDE "custom_starter/custom_starter_init.asm"
+INCLUDE "custom_starter/custom_starter_encounter_menu.asm"

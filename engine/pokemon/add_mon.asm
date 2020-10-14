@@ -111,8 +111,8 @@ _AddPartyMon::
 	jr nz, .copyEnemyMonData
 
 ; Not wild.
-	ld a, [wCustomStarterDefDV] ; CHANGE
-	ld hl, wCustomStarterAtkDV
+	ld a, [wCustomStarterAtkDV] ; CHANGE
+	ld hl, wCustomStarterDefDV
 	sla a
 	sla a
 	sla a
@@ -120,8 +120,8 @@ _AddPartyMon::
 	or a, [hl]
 	ld b, a
 	
-	ld a, [wCustomStarterSpcDV]
-	ld hl, wCustomStarterSpeDV
+	ld a, [wCustomStarterSpeDV]
+	ld hl, wCustomStarterSpcDV
 	sla a
 	sla a
 	sla a

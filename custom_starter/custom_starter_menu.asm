@@ -9,7 +9,7 @@ DisplayStarterMenu:
 	ld c, 18
 	call TextBoxBorder
 	hlcoord 0, 11
-	ld b, 3
+	ld b, 2
 	ld c, 18
 	call TextBoxBorder
 	hlcoord 1, 1
@@ -39,6 +39,12 @@ DisplayStarterMenu:
 	hlcoord 1, 13
 	ld de, StarterBallChoiceText
 	call PlaceString
+	hlcoord 5, 15 ; hacky hacky
+	ld de, StarterSpeciesWhiteText
+	call PlaceString
+	hlcoord 0, 15
+	ld de, StarterEncounterText
+	call PlaceString
 	hlcoord 2, 16
 	ld de, StarterCancelText
 	call PlaceString
@@ -67,13 +73,18 @@ DisplayStarterMenu:
 	call JoypadLowSensitivity
 	ldh a, [hJoy5]
 	ld b, a
-	and A_BUTTON | B_BUTTON | START | D_RIGHT | D_LEFT | D_UP | D_DOWN ; any key besides select pressed?
+	and A_BUTTON | B_BUTTON | START | SELECT | D_RIGHT | D_LEFT | D_UP | D_DOWN
 	jr z, .getJoypadStateLoop
-	bit 1, b ; B button pressed?
+	bit BIT_SELECT, b ; Select button pressed ? ; CHANGE
+	jp z, .noEncounterMenu
+	call DisplayStarterEncounterMenu
+	jr .exitMenu
+.noEncounterMenu
+	bit BIT_B_BUTTON, b ; B button pressed?
 	jr nz, .exitMenu
-	bit 3, b ; Start button pressed?
+	bit BIT_START, b ; Start button pressed?
 	jr nz, .exitMenu
-	bit 0, b ; A button pressed?
+	bit BIT_A_BUTTON, b ; A button pressed?
 	jr z, .checkDirectionKeys
 	ld a, [wTopMenuItemY]
 	cp 16 ; is the cursor on Cancel?
@@ -336,6 +347,9 @@ StarterBallText:
 	db "STARTER BALL@"
 StarterBallChoiceText:
 	db " LEFT  MID  RIGHT@"
+	
+StarterEncounterText:
+	db "(ENC. PRESS SEL.)@"
 
 StarterCancelText:
 	db "CANCEL@"

@@ -5,27 +5,29 @@ Modifications are made to offer starter customization for the player, as well as
 
 It builds the following ROMs:
 
-- Pokemon Red pokered.gbc `sha1: 5156dca039f7d3c65fa8df20b7842a2bbfe07214` `crc32: 0040D1B9`
-- Pokemon Blue pokeblue.gbc `sha1: 72c9e21ddf4700c1e0691b31b82fd4e126315b21` `crc32: 0CE64F80`
-- pokeblue_debug.gbc (debug build) `sha1: d3a1eed419251e9b184dc9db0146b005b71cfaac`
+- Pokemon Red pokered.gbc `sha1: b841b9e5b42c91e855325c8e408e03e0391fbef9` `crc32: 4ED78FBC`
+- Pokemon Blue pokeblue.gbc `sha1: 0178ea17e02dc433e0e14faf19b9c8e2d272ca53` `crc32: AA06507F`
+- pokeblue_debug.gbc (debug build) `sha1: 1dbe9d76edd3a4e3d70f8f064d18c0069e2af714`
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
 If you only need to apply the changes to an existing vanilla ROM, see [**PATCHES.md**](PATCHES.md)
 
 ## Main changes
-- Custom starter menu available before New Game, through the Option menu.
-- 6 Repels available in player's PC.
-- Guaranteed catch of any wild Pokémon with any Ball type.
-- Only Flier encounters on Route 3.
-- No L11 Zubats in Mt. Moon.
-- Only L10 Paras encounters on Mt. Moon B2F (last floor).
-- Only L6-8 Sandshrew encounters on Route 4 in Blue version.
-- Vermillion City Gym doors can be opened with any two cans.
+- Custom starter & encounter menus available before New Game, through the Option menu.
+- The encounter menu allows to choose up to 3 forced encounters with perfect DVs. Encounter are forced when no Repel is active.
+- Player's PC : 6 Repels available.
+- Catch mechanic : guaranteed with any Ball type.
+- Route 3 : only Pidgey and Spearow encounters.
+- Mt. Moon : no L11 Zubat encounters.
+- Mt. Moon B2F : only L10 Paras encounters (last floor).
+- Route 4 : only Sandshrew encounters in Blue version.
+- Vermillion Gym : doors can be opened with any two cans.
 
 ## Visuals
 ![Image of Option menu](https://i.imgur.com/NnjrHiX.png)
-![Image of Starter menu](https://i.imgur.com/D11hkv4.png)
+![Image of Starter menu](https://i.imgur.com/JC7d4n1.png)
+![Image of Encounter menu](https://i.imgur.com/oECURUi.png)
 
 ## See also
 
