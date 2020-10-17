@@ -1,4 +1,4 @@
-SetDefaultNames:
+SetDefaultNames: ; CHANGE
 	ld a, [wLetterPrintingDelayFlags]
 	push af
 	ld a, [wOptions]
@@ -6,7 +6,11 @@ SetDefaultNames:
 	ld a, [wd732]
 	push af
 	ld hl, wPlayerName
-	ld bc, wBoxDataEnd - wPlayerName
+	ld bc, wCustomVariablesStart - wPlayerName ;wBoxDataEnd - wPlayerName
+	xor a
+	call FillMemory
+	ld hl, wCustomVariablesEnd
+	ld bc, wBoxDataEnd - wCustomVariablesEnd
 	xor a
 	call FillMemory
 	ld hl, wSpriteDataStart

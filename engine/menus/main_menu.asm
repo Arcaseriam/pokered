@@ -6,13 +6,19 @@ MainMenu:
 	inc a
 	ld [wSaveFileStatus], a
 	call CheckForPlayerNameInSRAM
-	jr nc, .mainMenuLoop
+	jr nc, .checkBeingModified
 
 	predef LoadSAV
 	ld a, [wSaveFileStatus] ; CHANGE
 	dec a
 	ld [wDisabledCustomStarterMenu], a ; if save, disable starter menu
-
+	
+.checkBeingModified
+	ld a, [wDisabledCustomStarterMenu]
+	and a
+	jr nz, .mainMenuLoop
+	farcall InitCustomStarter ; CHANGE
+	; fallthrough
 .mainMenuLoop
 	ld c, 20
 	call DelayFrames
@@ -461,8 +467,8 @@ DisplayOptionMenu:
 	ld de, OptionMenuCancelText
 	call PlaceString
 	ld a, [wDisabledCustomStarterMenu] ; check if disabled starter menu
-	and a
-	jr nz, .skipStarterText
+	cp 1
+	jr z, .skipStarterText
 	hlcoord 0, 15 ; CHANGE
 	ld de, OptionMenuStarterText
 	call PlaceString
@@ -495,8 +501,8 @@ DisplayOptionMenu:
 	bit BIT_SELECT, b ; Select button pressed ? ; CHANGE
 	jp z, .noStarterMenu
 	ld a, [wDisabledCustomStarterMenu] ; check if disabled starter menu
-	and a
-	jr nz, .loop
+	cp 1 
+	jr z, .loop
 	farcall DisplayStarterMenu ; CHANGE
 	jr .exitMenu
 .noStarterMenu

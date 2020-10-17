@@ -2465,7 +2465,84 @@ wDestinationWarpID::
 ; if $ff, the player's coordinates are not updated when entering the map
 	ds 1
 
-	ds 128
+; CHANGE (was ds 128, make sure it adds up)
+wCustomVariablesStart::
+wCustomStarterAlphabeticalID::
+	ds 1
+wCustomStarterInternalID::
+	ds 1
+wCustomStarterDexID::
+	ds 1
+
+wCustomStarterAtkDV::
+	ds 1
+wCustomStarterDefDV::
+	ds 1
+wCustomStarterSpeDV::
+	ds 1
+wCustomStarterSpcDV::
+	ds 1
+
+wCustomStarterPosition::
+; bit 0 set: left (overrides Charmander)
+; bit 1 set: middle (overrides Squirtle)
+; bit 2 set: right (overrides Bulbasaur)
+	ds 1
+
+wCustomStarterPositionX::
+	ds 1
+
+wCustomStarter1::
+	ds 1
+wCustomStarter2::
+	ds 1
+wCustomStarter3::
+	ds 1
+	
+wDisabledCustomStarterMenu::
+; 0   = not disabled
+; 1   = disabled
+; 2+  = keep current custom stats & encounters
+	ds 1
+
+wArea1ID::
+	ds 1
+wArea1Level::
+	ds 1
+wArea1Species::
+	ds 1
+wArea1Pos::
+	ds 1
+wArea1SpeciesPos::
+	ds 1
+
+wArea2ID::
+	ds 1
+wArea2Level::
+	ds 1
+wArea2Species::
+	ds 1
+wArea2Pos::
+	ds 1
+wArea2SpeciesPos::
+	ds 1
+
+wArea3ID::
+	ds 1
+wArea3Level::
+	ds 1
+wArea3Species::
+	ds 1
+wArea3Pos::
+	ds 1
+wArea3SpeciesPos::
+	ds 1
+	
+wAreaIsForcedEncounter::
+	ds 1
+
+wCustomVariablesEnd::
+	ds 99
 
 wNumSigns::
 ; number of signs in the current map (up to 16)
@@ -3117,79 +3194,7 @@ wBoxMonNicksEnd::
 
 wBoxDataEnd::
 
-; CHANGE
-wCustomStarterAlphabeticalID::
-	ds 1
-wCustomStarterInternalID::
-	ds 1
-wCustomStarterDexID::
-	ds 1
 
-wCustomStarterAtkDV::
-	ds 1
-wCustomStarterDefDV::
-	ds 1
-wCustomStarterSpeDV::
-	ds 1
-wCustomStarterSpcDV::
-	ds 1
-
-wCustomStarterPosition::
-; bit 0 set: left (overrides Charmander)
-; bit 1 set: middle (overrides Squirtle)
-; bit 2 set: right (overrides Bulbasaur)
-	ds 1
-
-wCustomStarterPositionX::
-	ds 1
-
-wCustomStarter1::
-	ds 1
-wCustomStarter2::
-	ds 1
-wCustomStarter3::
-	ds 1
-	
-wDisabledCustomStarterMenu::
-; 0   = not disabled
-; any = disabled
-	ds 1
-
-wArea1ID::
-	ds 1
-wArea1Level::
-	ds 1
-wArea1Species::
-	ds 1
-wArea1Pos::
-	ds 1
-wArea1SpeciesPos::
-	ds 1
-
-wArea2ID::
-	ds 1
-wArea2Level::
-	ds 1
-wArea2Species::
-	ds 1
-wArea2Pos::
-	ds 1
-wArea2SpeciesPos::
-	ds 1
-
-wArea3ID::
-	ds 1
-wArea3Level::
-	ds 1
-wArea3Species::
-	ds 1
-wArea3Pos::
-	ds 1
-wArea3SpeciesPos::
-	ds 1
-	
-wAreaIsForcedEncounter::
-	ds 1
 
 ; failed attempt
 ; wEncounterTableAddr::

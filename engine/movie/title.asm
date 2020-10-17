@@ -21,9 +21,8 @@ SetDefaultNamesBeforeTitlescreen::
 	ld [wAudioROMBank], a
 	ld [wAudioSavedROMBank], a
 
-DisplayTitleScreen:	
-	farcall InitCustomStarter ; CHANGE
-
+DisplayTitleScreen:
+	xor a
 	call GBPalWhiteOut
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a

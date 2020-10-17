@@ -1,5 +1,8 @@
 ; CHANGE
 DisplayStarterMenu:
+	ld a, 2
+	ld [wDisabledCustomStarterMenu], a
+
 	hlcoord 0, 0
 	ld b, 3
 	ld c, 18
